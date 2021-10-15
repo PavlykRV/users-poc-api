@@ -149,8 +149,6 @@ async function updateUser({ id, data }) {
 }
 
 router.get('/', async (req, res) => {
-  console.log('QUERY:', req.query);
-
   const result = await getUsers();
 
   if (!result) {
