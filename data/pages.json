@@ -1,0 +1,18 @@
+[
+  { "name": "user-management" },
+  { "name": "cameras" },
+  { "name": "locations-and-groups" },
+  { "name": "lens-rectification" },
+  { "name": "plane-and-normal" },
+  { "name": "detection-polygon" },
+  { "name": "aoi-selection" },
+  { "name": "object-marker" },
+  { "name": "pipeline-status" },
+  { "name": "pipeline-management" },
+  { "name": "pipeline-controller" },
+  { "name": "cashier" },
+  { "name": "parking" },
+  { "name": "pumps" },
+  { "name": "ops" },
+  { "name": "support" }
+]

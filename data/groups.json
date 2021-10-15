@@ -1,0 +1,14 @@
+[
+  { "name": "Accounting" },
+  { "name": "Product Management" },
+  { "name": "Engineering" },
+  { "name": "Training" },
+  { "name": "Support" },
+  { "name": "Legal" },
+  { "name": "Business Development" },
+  { "name": "Sales" },
+  { "name": "Marketing" },
+  { "name": "Research and Development" },
+  { "name": "Services" },
+  { "name": "Human Resources" }
+]

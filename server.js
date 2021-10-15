@@ -6,7 +6,7 @@ const root = require('./src/routes/root');
 const users = require('./src/routes/users');
 
 mongoose
-  .connect('mongodb://localhost/playground')
+  .connect('mongodb://localhost/mongo-poc')
   .then(() => console.log('Connected to MongoDB...'))
   .catch((error) => console.error('Could not connect to MongoDB...', error));
 
