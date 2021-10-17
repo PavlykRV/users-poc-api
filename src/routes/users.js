@@ -8,9 +8,7 @@ const Group = require('../models/group');
 const Page = require('../models/page');
 
 async function getUsers({ items, page, search }) {
-  console.log('getUsers:', items, page, search);
   const pattern = new RegExp(`.*${search}.*`, 'i');
-  console.log('PATTERN', pattern);
   try {
     const users = await User.find()
       .or([{ firstName: pattern }, { lastName: pattern }])
@@ -196,7 +194,6 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { error } = validateUser(req.body);
-  console.log('req.body:', req.body);
   if (error) {
     res.status(400).send(error.details);
     return;
