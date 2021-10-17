@@ -7,10 +7,22 @@ const Location = require('../models/location');
 const Group = require('../models/group');
 const Page = require('../models/page');
 
-async function getUsers() {
+async function getUsers({ items, page, search }) {
+  console.log('getUsers:', items, page, search);
+  const pattern = new RegExp(`.*${search}.*`, 'i');
+  console.log('PATTERN', pattern);
   try {
-    const users = await User.find({}).limit(1000).then();
-    return users;
+    const users = await User.find()
+      .or([{ firstName: pattern }, { lastName: pattern }])
+      .skip((parseInt(page) - 1) * parseInt(items))
+      .limit(parseInt(items))
+      .then();
+    const total = await User.find().count().then();
+    console.log('USERS', users.length);
+    return {
+      users,
+      total,
+    };
   } catch (error) {
     console.error('Error while fetching users', error);
   }
@@ -149,7 +161,8 @@ async function updateUser({ id, data }) {
 }
 
 router.get('/', async (req, res) => {
-  const result = await getUsers();
+  const { items, page, search } = req.query;
+  const result = await getUsers({ items, page, search });
 
   if (!result) {
     return res.status(404).send('The users was not found');
